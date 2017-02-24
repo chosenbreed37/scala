@@ -1,0 +1,60 @@
+Concepts
+
+Higher order functions
+
+Monomorphic functions: Operate on concrete types
+def findFirst(items: Array[String], key: String): Int = ???
+
+Polymorphic functions: Operate on generic/parametric types, Abstracting over types
+def findFirst[A](as: Array[A], p: A => Boolean): Int = ???
+
+Array literals: Array(1,2,3)
+
+Function literal: (x: Int) => x == 9
+
+Functions as values
+(x: Int, y: Int) => x < y
+val lessThan = new Function2[Int, Int, Boolean] {
+  def apply(a: Int, b: Int) = a < b
+}
+
+Partial application:
+def partial1[A,B,C](a: A, f(a: A, b: B) => C): B => C = (b: B) => f(a, b)
+
+Currying:
+  def curry[A,B,C](f: (A, B) => C): A => (B => C) = partial1(a, f)
+
+Compose:
+  def compose[A,B,C](f: B => C, g: A => B): A => C = a => f(g(a))
+
+Variance:
+  Covariant: trait List[A+]
+  For any types X and Y List[X] is a subtype of List[Y] if X is a subtype of Y
+
+  Invariant: trait List[A]
+
+  Contravariant:
+
+Variadic functions: accepts zero or more arguments of a given type
+Seq: is an interface in scala collections intended for sequence-like data structures
+
+Persistent datastructures: existing references are not changed by operations on the
+  datastructure
+
+Maximise type inference: functions with multiple arguments should be re-written with multiple
+    argument lists
+
+Vector: effiction datastructure with constant time for many operations
+
+Algebraic data types: a data type defined by one or more data constructors with one or more arguments
+  A data type is the sum or union of its data constructors
+  A data constructor is the product of its arguments
+
+
+1. Be proactive
+2. Begin with the end in mind
+3. Put first things first
+4. Think win-win
+5. Seek first to understand, then to be understood
+6. Synergize
+7. Sharpen the saw
